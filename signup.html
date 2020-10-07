@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign Up - Xgridz</title>
+		<link rel="stylesheet" href="app/css/styles.css" type="text/css" />
+		<link rel="stylesheet" href="app/css/signup-style.css" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
+		<script type="text/javascript" src="app/js/script.js"></script>
+	</head>
+	<body>
+		<header class="header" id="myHeader">
+			<nav class="flex">
+				<div class="logo">
+					<a href="index.html" class="flex-jc-sb header-logo">
+						<img src="app/img/logo_file.png" alt="XGridz" />
+					</a>
+				</div>
+				<div class="menu-link">
+					<ul class="unordered-list">
+						<li class="btn">
+							<a href="/login.html"><span>Log In</span></a>
+						</li>
+						<li class="btn">
+							<a href="#"><span>About Us</span></a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<div class="sign-up">
+			<h1 class="sign-up-message">Sign Up</h1>
+			<div class="sign-up-panel">
+				<form>
+					<div class="form-group">
+						<input type="text" placeholder="First name" id="name" />
+					</div>
+
+					<div class="form-group">
+						<input type="email" placeholder="Email Address" id="email" />
+					</div>
+
+					<div class="form-group">
+						<input
+							type="password"
+							placeholder="Password"
+							minlength="6"
+							id="password"
+						/>
+					</div>
+
+					<div class="form-group" id="signupbtn">
+						<input
+							onclick="signUp()"
+							type="button"
+							class="pill-btn"
+							value="Submit"
+						/>
+					</div>
+				</form>
+
+				<div id="formFooter">
+					<a class="underlineHover" href="#">Forgot Password?</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
