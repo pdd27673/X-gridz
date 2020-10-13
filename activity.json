@@ -1,0 +1,22 @@
+{
+	"quizlist": [
+		{
+			"question": "Which picture shows a baby?",
+			"option1": "baby.png",
+			"option2": "",
+			"option3": ""
+		},
+		{
+			"question": "Which picture shows a baby??",
+			"option1": "baby.png",
+			"option2": "",
+			"option3": ""
+		},
+		{
+			"question": "Which picture shows a baby?",
+			"option1": "baby.png",
+			"option2": "",
+			"option3": ""
+		}
+	]
+}
