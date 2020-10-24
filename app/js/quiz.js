@@ -1,115 +1,23 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-	// Your code to run since DOM is loaded and ready
-	var questionNumber = 0;
-	var questionBank = new Array();
-	var stage = '#game1';
-	var stage2 = new Object();
-	var questionLock = false;
-	var numberOfQuestions;
-	var score = 0;
+// document.addEventListener('DOMContentLoaded', function (event) {
+function getData() {
+	//sets this.row with the row in the html gets the value of row
+	var row = parseInt(document.getElementById('row').value);
 
-	$.getJSON('activity.json', function (data) {
-		for (i = 0; i < data.quizlist.length; i++) {
-			questionBank[i] = new Array();
-			questionBank[i][0] = data.quizlist[i].question;
-			questionBank[i][1] = data.quizlist[i].option1;
-			questionBank[i][2] = data.quizlist[i].option2;
-			questionBank[i][3] = data.quizlist[i].option3;
-		}
-		numberOfQuestions = questionBank.length;
+	//sets this.column with the row in the html and gets the value of column
+	var column = parseInt(document.getElementById('column').value);
 
-		displayQuestion();
-	}); //gtjson
+	//sets the the variables and put in local storage, so linked page can access data of row and colum
+	localStorage.setItem('Row', row);
+	localStorage.setItem('Column', column);
+}
 
-	fillDB();
+function putData() {
+	//this will get the row inputted and put the data to be printed out in rowData html
+	document.getElementById('rowData').innerHTML =
+		' ' + parseInt(document.getElementById('row').value);
 
-	function displayQuestion() {
-		var rnd = Math.random() * 3;
-		rnd = Math.ceil(rnd);
-		var q1;
-		var q2;
-		var q3;
-
-		if (rnd == 1) {
-			q1 = questionBank[questionNumber][1];
-			q2 = questionBank[questionNumber][2];
-			q3 = questionBank[questionNumber][3];
-		}
-		if (rnd == 2) {
-			q2 = questionBank[questionNumber][1];
-			q3 = questionBank[questionNumber][2];
-			q1 = questionBank[questionNumber][3];
-		}
-		if (rnd == 3) {
-			q3 = questionBank[questionNumber][1];
-			q1 = questionBank[questionNumber][2];
-			q2 = questionBank[questionNumber][3];
-		}
-
-		$(stage).append(
-			'<div  class="questionText">' +
-				questionBank[questionNumber][0] +
-				'</div><div id="1" class="pix"><img src="app/img/' +
-				q1 +
-				'"></div><div id="2" class="pix"><img src="app/img/' +
-				q2 +
-				'"></div><div id="3" class="pix"><img src="app/img/' +
-				q3 +
-				'"></div>'
-		);
-
-		$('.pix').click(function () {
-			if (questionLock == false) {
-				questionLock = true;
-				//correct answer
-				if (this.id == rnd) {
-					$(stage).append('<div class="feedback1">CORRECT</div>');
-					score++;
-				}
-				//wrong answer
-				if (this.id != rnd) {
-					$(stage).append('<div class="feedback2">WRONG</div>');
-				}
-				setTimeout(function () {
-					changeQuestion();
-				}, 1000);
-			}
-		});
-	} //display question
-
-	function changeQuestion() {
-		questionNumber++;
-
-		if (stage == '#game1') {
-			stage2 = '#game1';
-			stage = '#game2';
-		} else {
-			stage2 = '#game2';
-			stage = '#game1';
-		}
-
-		if (questionNumber < numberOfQuestions) {
-			displayQuestion();
-		} else {
-			displayFinalSlide();
-		}
-
-		$(stage2).animate({ right: '+=800px' }, 'slow', function () {
-			$(stage2).css('right', '-800px');
-			$(stage2).empty();
-		});
-		$(stage).animate({ right: '+=800px' }, 'slow', function () {
-			questionLock = false;
-		});
-	} //change question
-
-	function displayFinalSlide() {
-		$(stage).append(
-			'<div class="questionText">You have finished the quiz!<br><br>Total questions: ' +
-				numberOfQuestions +
-				'<br>Correct answers: ' +
-				score +
-				'</div>'
-		);
-	} //display final slide
-}); //doc ready
+	//this will get the column inputted and put the data to be printed out in columnData html
+	document.getElementById('columnData').innerHTML =
+		' ' + parseInt(document.getElementById('column').value);
+}
+// });

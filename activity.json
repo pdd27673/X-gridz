@@ -1,22 +1,20 @@
 {
-	"quizlist": [
-		{
-			"question": "Which picture shows a baby?",
-			"option1": "baby.png",
-			"option2": "",
-			"option3": ""
-		},
-		{
-			"question": "Which picture shows a baby??",
-			"option1": "baby.png",
-			"option2": "",
-			"option3": ""
-		},
-		{
-			"question": "Which picture shows a baby?",
-			"option1": "baby.png",
-			"option2": "",
-			"option3": ""
-		}
+	"images": [
+		"leopard.png",
+		"tiger.png",
+		"cheetah.png",
+		"labrador.png",
+		"beagle.png",
+		"poodle.png",
+		"eagle.png",
+		"meerkat.png",
+		"chipmunk.png",
+		"squirrel.png",
+		"dog.png",
+		"cat.png",
+		"pigeon.png",
+		"hamster.png",
+		"lion.png",
+		"rabbit.png"
 	]
 }

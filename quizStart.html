@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        p {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>USER PREFERENCE</h1>
+
+    <!-- NEED TO STILL PUT IN THE PART TO CUSTOMIZE THE IMAGES -->
+
+    <!-- THe html sites used is UserPrefeferancePage.html and CustomGridPreviewPage.html -->
+
+    <!-- CUSTOM GRID SECTION -->
+    <fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;">
+
+        <!-- The linked page will be CustomGridPreviewPage.html the data of row and column will be there-->
+        <form action="/quizGrid.html">
+            <legend>Grid Preference</legend>
+
+            <!-- This makes the label 'Row:' and  the input box to fill a number. It only accepts numbers-->
+            <label style="font-size: 20px;"> Row:
+                <input type="number" name="row" id="row" /></label>
+
+            <!-- This makes the label 'Column:'  and  the iput box to fill a number. It only accepts numbers-->
+            <label style="font-size: 20px;"> Column:
+                <input type="number" name="column" id="column" /></label>
+
+            <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
+            <input type="submit" value="Submit" onclick="getData()">
+
+            <!-- This button is to show the data inputted on current page, calls .js function putData()-->
+            <input type="button" value="Answer" onclick="putData()"><br>
+
+            <!-- This shows label 'Row inputted:' and outputs the row data that was inputted by the user on current page -->
+            <label style="font-size: 15px;"> Row inputted:
+                <span id="rowData" style="font-size: 15px"> </span><br>
+
+                <!-- This shows label 'Column inputted:' and outputs the column data that was inputted by the user on current page -->
+                <label style="font-size: 15px;"> Column inputted:
+                    <span id="columnData" style="font-size: 15px"> </span>
+
+        </form>
+    </fieldset>
+
+    <br></br>
+
+    <!-- IMAGE PREFERENCE SECTION -->
+    <fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;">
+
+        <!-- The linked page will be CustomImagePage.html -->
+        <form action="/quizGrid.html">
+            <legend>Image Preference</legend>
+            <span style="font-size: 15px;">Select and image</span><br>
+
+            <!-- This makes the label 'Image:' and  the input box to fill a text. -->
+            <label style="font-size: 20px;"> Image:
+                <input type="text" name="row" id="row" /></label>
+
+
+            <!-- This button will take the user to another page where they can choose their image-->
+            <input type="submit" value="Select Image"><br>
+
+
+
+        </form>
+    </fieldset>
+
+
+    <p><strong>NOTE:</strong> The Submit button will transfer u to another page with the data of row and column.</p>
+    <p><strong>NOTE:</strong> The Answer button will output the data and row in the current page.</p>
+    <p><strong>NOTE:</strong> The Select Image button will to another page where the user picks and image.</p>
+    <script src="app/js/quiz.js"></script>
+
+
+</body>
+
+
+
+</html>
