@@ -1,10 +1,13 @@
 //Declaring most global variables
 var rows = localStorage.getItem('Row');
 var columns = localStorage.getItem('Column');
+var questionCount = 0;
 var questionNumber = 5;
-const container = document.getElementById('container');
+var stage = 'container1';
+var stage2 = 'container2';
 var data, rightAnswer, rnd;
 var questionLock = false;
+var score = 0;
 
 //Declaring array that holds questions
 var questions = new Array();
@@ -24,38 +27,144 @@ request.onload = function () {
 			questions[i] = data.images[i];
 		}
 
+		//Function to shuffle the images in the array
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * i);
+				const temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+		}
+
+		//Function that displays the final slide
+		function displayFinalSlide(stage) {
+			var div = document.getElementById(stage);
+			//create element to be displayed on page
+			var result = `<h1>Results</h1> <p>You got ${score} out of ${questionNumber}</p>`;
+			//div to hold element
+			var resultDisplay = document.createElement('div');
+			//display text in resultDisplay div
+			resultDisplay.innerHTML = result;
+			//assign div a child
+			div.appendChild(resultDisplay);
+		}
+
+		//function that'll change question once they've been answered
+		function changeQuestion() {
+			//increment question count
+			questionCount++;
+
+			//depending on what stage program is on go to following stage
+			if (stage == 'container1') {
+				stage2 = 'container1';
+				stage = 'container2';
+			} else {
+				stage2 = 'container2';
+				stage = 'container1';
+			}
+
+			//declaring jstage and jstage2 as the jquery variables needed
+			//to use .animate() function from jQuery Library
+			var jstage2 = '#' + stage2;
+			var jstage = '#' + stage;
+
+			//animating the switching to the next page
+			$(jstage2).animate({ left: '+=80vh' }, 'slow', function () {
+				$(jstage2).css('left', '-80vh');
+			}); //hide stage2
+			$(jstage).animate({ left: '+=89vh' }, 'slow', function () {
+				questionLock = false;
+			}); //show stage 1, and unlock question
+
+			if (questionCount < questionNumber) {
+				//if not at the last question
+				//delete previous slide
+				var s2 = document.getElementById(stage2);
+				while (s2.firstChild) s2.removeChild(s2.firstChild);
+
+				//shuffle the array to have different image positioning
+				shuffleArray(questions);
+
+				//remake another questions
+				makeRows(stage, rows, columns);
+			} else {
+				var s2 = document.getElementById(stage2);
+				while (s2.firstChild) s2.removeChild(s2.firstChild);
+				//if at the end
+				//show results
+				displayFinalSlide(stage);
+			}
+		}
+
 		//Function to randomize and assign the baby image randomly
 		function assignCorrectAnswer() {
 			//creates random number from 0 to number of cells
 			rnd = Math.floor(Math.random() * (rows * columns) + 1);
 			//pulling random image from div
-			var img = document.getElementById(`cell${rnd}`);
+			var img = document.getElementById(`img${rnd}`);
 			//assigning
 			img.src = '/app/img/baby.png';
 		}
 
-		// function checkAnswer() {
-		// 	var el = document.getElementsByTagName('img');
+		//function to check clicked on image
+		function checkAnswer() {
+			//pulling all <img> elements
+			var img = document.getElementsByTagName('img');
 
-		// 	var clickFunction = function (event) {
-		// 		var id = event.target.id;
-		// 		return id;
-		// 	};
+			//looping thru each elements and assigning it an onclick function
+			for (var i = 0; i < img.length; i++) {
+				img[i].onclick = function () {
+					//on click run next code block
 
-		// 	for (var i = 0; i < el.length; i++) {
-		//         el[i].addEventListener('click', clickFunction, false);
-		// 	}
-
-		// 	if (questionLock == false) {
-		// 		questionLock = true;
-		// 		if (clickFunction == `cell${rnd}`) {
-		// 		}
-		// 	}
-		// }
+					if (questionLock == false) {
+						//lock the question
+						questionLock = true;
+						//perform check
+						if (this.id === `img${rnd}`) {
+							//correct answer
+							//increment score
+							score++;
+							console.log('correct answer');
+							//get cell holding the image
+							var cell = document.getElementById(`cell${rnd}`);
+							//make border green
+							cell.style.border = 'solid green';
+							//set a timeout before changing question
+							setTimeout(function () {
+								changeQuestion();
+							}, 1500);
+						} else {
+							//wrong answer
+							console.log('wrong answer');
+							//get the id of clicked element
+							var str = this.id;
+							//pulling numbers only from that string
+							var res = str.replace(/\D/g, '');
+							//pulling corresponding div cell
+							var cell = document.getElementById(`cell${res}`);
+							//making cell border red
+							cell.style.border = 'solid red';
+							//set timeout before next question
+							setTimeout(function () {
+								changeQuestion();
+							}, 1500);
+						}
+					} else {
+						//in case question has been answered
+						alert('question has already been answered');
+						setTimeout(function () {
+							changeQuestion();
+						}, 1000);
+					}
+				};
+			}
+		}
 
 		//Function to make rows with cells in them
-		function makeRows(rows, cols) {
+		function makeRows(stageI, rows, cols) {
 			//setting css grid row/cols properties
+			var container = document.getElementById(stageI);
 			container.style.setProperty('--grid-rows', rows);
 			container.style.setProperty('--grid-cols', cols);
 
@@ -66,17 +175,19 @@ request.onload = function () {
 				let img = document.createElement('img');
 				//set img attributes and src
 				img.src = '/app/img/' + questions[c];
-				img.alt = questions[c];
-				img.id = `cell${c + 1}`;
+				// img.className = 'cell';
+				cell.id = `cell${c + 1}`;
+				img.id = `img${c + 1}`;
 				//append img to cell and then cell to container
 				cell.appendChild(img);
 				container.appendChild(cell).className = 'grid-item';
 			}
-			//
+			//calling functions
 			assignCorrectAnswer();
+			checkAnswer();
 		}
 
-		makeRows(rows, columns);
+		makeRows(stage, rows, columns);
 	} else {
 		console.log('Error');
 	}
@@ -86,85 +197,4 @@ request.onerror = function () {
 	// There was a connection error of some sort
 };
 
-request.send();
-
-// document.addEventListener('DOMContentLoaded', function (event) {
-// 	// Your code to run since DOM is loaded and ready
-// 	var questionNumber = 0;
-// 	var questionBank = new Array();
-// 	var stage = '#game1';
-// 	var stage2 = new Object();
-// 	var questionLock = false;
-// 	var numberOfQuestions;
-// 	var score = 0;
-
-// 	$.getJSON('activity.json', function (data) {
-// 		for (i = 0; i < data.quizlist.length; i++) {
-// 			questionBank[i] = new Array();
-// 			questionBank[i][0] = data.quizlist[i].question;
-// 			questionBank[i][1] = data.quizlist[i].option1;
-// 			questionBank[i][2] = data.quizlist[i].option2;
-// 			questionBank[i][3] = data.quizlist[i].option3;
-// 		}
-// 		numberOfQuestions = questionBank.length;
-
-// 		displayQuestion();
-// 	}); //gtjson
-
-// 	fillDB();
-
-// 		$('.pix').click(function () {
-// 			if (questionLock == false) {
-// 				questionLock = true;
-// 				//correct answer
-// 				if (this.id == rnd) {
-// 					$(stage).append('<div class="feedback1">CORRECT</div>');
-// 					score++;
-// 				}
-// 				//wrong answer
-// 				if (this.id != rnd) {
-// 					$(stage).append('<div class="feedback2">WRONG</div>');
-// 				}
-// 				setTimeout(function () {
-// 					changeQuestion();
-// 				}, 1000);
-// 			}
-// 		});
-// 	} //display question
-
-// 	function changeQuestion() {
-// 		questionNumber++;
-
-// 		if (stage == '#game1') {
-// 			stage2 = '#game1';
-// 			stage = '#game2';
-// 		} else {
-// 			stage2 = '#game2';
-// 			stage = '#game1';
-// 		}
-
-// 		if (questionNumber < numberOfQuestions) {
-// 			displayQuestion();
-// 		} else {
-// 			displayFinalSlide();
-// 		}
-
-// 		$(stage2).animate({ right: '+=800px' }, 'slow', function () {
-// 			$(stage2).css('right', '-800px');
-// 			$(stage2).empty();
-// 		});
-// 		$(stage).animate({ right: '+=800px' }, 'slow', function () {
-// 			questionLock = false;
-// 		});
-// 	} //change question
-
-// 	function displayFinalSlide() {
-// 		$(stage).append(
-// 			'<div class="questionText">You have finished the quiz!<br><br>Total questions: ' +
-// 				numberOfQuestions +
-// 				'<br>Correct answers: ' +
-// 				score +
-// 				'</div>'
-// 		);
-// 	} //display final slide
-// }); //doc ready
+request.send(); //end of request
