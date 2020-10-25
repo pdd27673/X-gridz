@@ -29,12 +29,18 @@ function signUp() {
 	alert('Signed Up');
 }
 
+//After user clicks on user type when signing up. Move curser to enter User's Name
+function nameInput(){
+	document.getElementById('name').focus();
+}
+
 function signOut() {
 	auth.signOut();
 	alert('Signed Out');
 
 	window.location = '/index.html';
 }
+
 
 // auth.onAuthStateChanged(function (user) {
 // 	if (user) {

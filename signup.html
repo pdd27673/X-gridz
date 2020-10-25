@@ -40,21 +40,22 @@
 			<h1 class="sign-up-message">Sign Up</h1>
 			<div class="sign-up-panel">
 				<form>
+					<h2 class="sign-up">Sign Up As...</h2>
+					<div class="form-group" data-toggle="buttons">
+						<label class="pill-btn-color active">
+						  <input type="radio" name="options" id="userType" value = Student> Student
+						</label>
+						<label class="pill-btn-color">
+						  <input type="radio" name="options" id="userType" value = Teacher> Teacher
+						</label>
+					  </div>
+
 					<div class="form-group">
-						<input type="text" placeholder="First name" id="name" />
+						<input type="text" placeholder="First & Last name" id="name" />
 					</div>
 
 					<div class="form-group">
-						<input type="email" placeholder="Email Address" id="email" />
-					</div>
-
-					<div class="form-group">
-						<input
-							type="password"
-							placeholder="Password"
-							minlength="6"
-							id="password"
-						/>
+						<button id="signUpBtn" class= googlesignin>Sign in with Google</button>
 					</div>
 
 					<div class="form-group" id="signupbtn">
@@ -66,10 +67,6 @@
 						/>
 					</div>
 				</form>
-
-				<div id="formFooter">
-					<a class="underlineHover" href="#">Forgot Password?</a>
-				</div>
 			</div>
 		</div>
 	</body>
