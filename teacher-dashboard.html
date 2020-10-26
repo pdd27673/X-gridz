@@ -6,6 +6,7 @@
 		<title>Document</title>
 
 		<link rel="stylesheet" href="app/css/signup-style.css" type="text/css" />
+		<link rel="stylesheet" href="app/css/teacherbashboard-style.css" type="text/css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600;1,700&display=swap"
 			rel="stylesheet"
@@ -14,7 +15,7 @@
 		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
 		<script type="text/javascript" src="app/js/script.js"></script>
-		<script type="text/javascript" src="app/js/logout.js"></script>
+
 	</head>
 	<body>
 		<h1>Teacher logged in woohoo!</h1>
@@ -27,5 +28,49 @@
 				value="Log out"
 			/>
 		</div>
+
+		<p class="rectangle">
+			Student Information
+		</p>
+		
+		<div class="box-row">
+			<div class="box-form-body">FirstLast Name</div>
+			<button class="grid-btn" id = "individualGrid">Grid</button>
+			<button class="grades-btn" id = "studentGrades">Grades</button>
+		</div>
+		
+
+		<div class="form-group" id="addStudent">
+			<input
+				onclick="addStudent()"
+				type="button"
+				class="add-btn"
+				value="+"
+			/>
+		</div>
+
 	</body>
+
+	<div class="bg-model">
+		<div class= "model-content">
+			<p class="popup-rectangle">
+				Add a student to list:
+			</p>
+			<form action="">
+				Enter Students Email:
+				<input type="text" placeholder = "student's email" id=studnetEmail>
+				<a href="" class="pill-btn-green" id= findStudentEmail >Submit</a>
+				<a href="" id="Cancel">
+					<input
+					onclick=closePopUp()
+					type="button"
+					class="pill-btn-red"
+					value="Cancel"
+					/>
+				</a>
+			</form>
+		</div>
+	</div>
 </html>
+
+

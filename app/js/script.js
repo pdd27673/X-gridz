@@ -29,16 +29,21 @@ function signUp() {
 	alert('Signed Up');
 }
 
-//After user clicks on user type when signing up. Move curser to enter User's Name
-function nameInput(){
-	document.getElementById('name').focus();
-}
-
 function signOut() {
 	auth.signOut();
 	alert('Signed Out');
 
 	window.location = '/index.html';
+}
+
+/*****Teacher dashboard*****/
+
+//Teacher Addding Student 
+function addStudent(){
+    document.querySelector('.bg-model').style.display='flex';
+}
+function closePopUp(){
+    document.querySelector('.bg-model').style.display='none';
 }
 
 
