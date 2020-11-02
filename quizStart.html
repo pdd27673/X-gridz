@@ -29,11 +29,11 @@
 
             <!-- This makes the label 'Row:' and  the input box to fill a number. It only accepts numbers-->
             <label style="font-size: 20px;"> Row:
-                <input type="number" name="row" id="row" /></label>
+                <input type="number" name="row" id="row" min="1" max="50" /></label>
 
             <!-- This makes the label 'Column:'  and  the iput box to fill a number. It only accepts numbers-->
             <label style="font-size: 20px;"> Column:
-                <input type="number" name="column" id="column" /></label>
+                <input type="number" name="column" id="column" min="1" max="50" /></label>
 
             <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
             <input type="submit" value="Submit" onclick="getData()">
