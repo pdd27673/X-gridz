@@ -45,6 +45,7 @@ request.onload = function () {
 			//div to hold element
 			var resultDisplay = document.createElement('div');
 			//display text in resultDisplay div
+			resultDisplay.className = 'result';
 			resultDisplay.innerHTML = result;
 			//assign div a child
 			div.appendChild(resultDisplay);
