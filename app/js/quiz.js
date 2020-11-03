@@ -6,9 +6,15 @@ function getData() {
 	//sets this.column with the row in the html and gets the value of column
 	var column = parseInt(document.getElementById('column').value);
 
+	//sets this.questionsNumber
+	var questionsNumber = parseInt(
+		document.getElementById('questionsNumber').value
+	);
+
 	//sets the the variables and put in local storage, so linked page can access data of row and colum
 	localStorage.setItem('Row', row);
 	localStorage.setItem('Column', column);
+	localStorage.setItem('questionNumber', questionsNumber);
 }
 
 function putData() {
