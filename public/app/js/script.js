@@ -29,37 +29,66 @@ function googleSignUp() {
 	});
 }
 
+
 const db = firebase.firestore();
 function signUp() {
     // Users First and Last Name
 	var username = document.getElementById('name');
 
-
 	auth.onAuthStateChanged(user => {
 		if(user) {
-				// if user is a Student 
-			if(document.getElementById('StudentType').checked) {
-				db.collection("Users").doc("Students").collection("StudentInfo").add({
-					name: username.value,
-					email: user.email
-				});
-				alert('Signed Up as Student');
-			}
 
-				// If the user is a Teacher 
-			else if(document.getElementById('TeacherType').checked){
-				db.collection("Users").doc("Teachers").collection("TeacherInfo").add({
-					name: username.value,
-					email: user.email
-				});
-				alert('Signed Up as Teacher');
-		   }
+			studentQuery = db.collection("Users").doc("Students").collection("StudentInfo").where("email", "==", user.email);
+			teacherQuery = db.collection("Users").doc("Teachers").collection("TeacherInfo").where("email", "==", user.email);
+			
+			studentQuery.get().then(function (querySnapshot) {
+				if(querySnapshot.empty){
+					teacherQuery.get().then(function (querySnapshot){
+						if(querySnapshot.empty){
+							/*********Adding User Data to Firestore**********/
+
+							// if user is a Student
+							if(document.getElementById('StudentType').checked) {
+								db.collection("Users").doc("Students").collection("StudentInfo").add({
+									name: username.value,
+									email: user.email
+								});
+								alert('Signed Up as Student');
+							}
+				
+								// If the user is a Teacher 
+							else if(document.getElementById('TeacherType').checked){
+								db.collection("Users").doc("Teachers").collection("TeacherInfo").add({
+									name: username.value,
+									email: user.email
+								});
+								alert('Signed Up as Teacher');
+						   }
+
+
+						}else{
+							alert('Account already exist, choose differnt email');
+						}
+					}) // teacherQuery 
+				}else{
+					alert('Account already exist, choose differnt email');
+				}
+			 })// studentQuery 
 		
 		}
 		
 	});
 
 }
+async function doSomething(querySnapshot) {
+    let result = await functionThatReturnsPromiseA(!querySnapshot);
+    return result;
+}
+
+async function functionThatReturnsPromiseA(querySnapshot) {
+	return !querySnapshot.empty
+}
+
 
 function signOut() {
 	auth.signOut();
