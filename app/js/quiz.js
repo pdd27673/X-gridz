@@ -11,10 +11,13 @@ function getData() {
 		document.getElementById('questionsNumber').value
 	);
 
+	var ImageName = document.getElementById('ImgName').value;
+
 	//sets the the variables and put in local storage, so linked page can access data of row and colum
 	localStorage.setItem('Row', row);
 	localStorage.setItem('Column', column);
 	localStorage.setItem('questionNumber', questionsNumber);
+	localStorage.setItem('ImgName', ImageName);
 }
 
 function putData() {

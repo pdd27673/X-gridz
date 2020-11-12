@@ -8,6 +8,8 @@ var stage2 = 'container2';
 var data, rightAnswer, rnd;
 var questionLock = false;
 var score = 0;
+var recentImageDataUrl = localStorage.getItem("recent-image")
+var ImageName = localStorage.getItem("ImgName")
 
 //Declaring array that holds questions
 var questions = new Array();
@@ -102,10 +104,10 @@ request.onload = function () {
 		function assignCorrectAnswer() {
 			//creates random number from 0 to number of cells
 			rnd = Math.floor(Math.random() * (rows * columns) + 1);
-			//pulling random image from div
 			var img = document.getElementById(`img${rnd}`);
-			//assigning
-			img.src = '/app/img/baby.png';
+			if (recentImageDataUrl) {
+				img.src = recentImageDataUrl;
+			}
 		}
 
 		//function to check clicked on image

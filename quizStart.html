@@ -62,14 +62,40 @@
     <div class = "rectanglewhite">
    
         <label  class = "cutsomGridString"><strong>Choose Image:</strong> </label>      
-             <!-- <input type="number" name="row" id="row" min="1" max="50" class = "NoTxtBox" /></label> 
-             <input type="submit" value="Submit" onclick="getData()" class = "stringButton">  -->
-             <input type="file" id="myFile" name="filename" class = "stringButton">
-
-    <!-- YOOOOO GO HERE FOR FILE ___ IGNORE FOR RN -->
-             <!-- <img id="blah" alt="your image" width="50" height="50" />
-            <input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" id = "myfile2" > -->
+             <input type = "file">
+             <img src = "" id = "myImg" width = "50" height = "50">
            
+    </div>
+
+    <script>
+        localStorage.clear();
+        window.addEventListener('load', function() {
+         document.querySelector('input[type="file"]').addEventListener('change', function() {
+          if (this.files && this.files[0]) {
+             var img = document.querySelector('img');
+             img.src = URL.createObjectURL(this.files[0]);
+             img.onload = imageIsLoaded;
+             //where tutorial starts
+             const reader = new FileReader();
+
+             reader.addEventListener("load", () => {
+                 localStorage.setItem("recent-image", reader.result);
+             });
+
+             reader.readAsDataURL(this.files[0]);
+
+         }
+     });
+    });
+
+    function imageIsLoaded(e) { alert(e);}
+    </script>
+
+    <div class = "rectanglewhite">
+   
+        <label  class = "cutsomGridString"><strong>Name of Image:</strong> </label>      
+            <input type="string" name="ImgName" id="ImgName" min="1" max="10" class = "NameTxtBox" /></label>  
+
     </div>
 
     <!-- New white rectangel container -->
