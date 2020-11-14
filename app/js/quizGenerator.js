@@ -8,8 +8,8 @@ var stage2 = 'container2';
 var data, rightAnswer, rnd;
 var questionLock = false;
 var score = 0;
-var recentImageDataUrl = localStorage.getItem("recent-image")
-var ImageName = localStorage.getItem("ImgName")
+var recentImageDataUrl = localStorage.getItem("recent-image");
+var ImageName = localStorage.getItem("ImgName");
 
 //Declaring array that holds questions
 var questions = new Array();
@@ -108,6 +108,9 @@ request.onload = function () {
 			if (recentImageDataUrl) {
 				img.src = recentImageDataUrl;
 			}
+			else{
+				img.src = '/app/img/baby.png';
+			}
 		}
 
 		//function to check clicked on image
@@ -201,3 +204,5 @@ request.onerror = function () {
 };
 
 request.send(); //end of request
+
+

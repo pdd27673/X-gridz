@@ -59,13 +59,14 @@
 
     <!-- makes new container "rectanglewhite" that contains button of what imgae file the user wants WILL EDIT LATER -->
     <!-- NOT SURE BOUT THIS YET, NEED TO TALK TO PAUL -->
+    
     <div class = "rectanglewhite">
    
         <label  class = "cutsomGridString"><strong>Choose Image:</strong> </label>      
-             <input type = "file">
-             <img src = "" id = "myImg" width = "50" height = "50">
+             <input type = "file" accept = 'image/*' id="myFile"  name="filename" class = "stringButton">
            
     </div>
+
 
     <script>
         localStorage.clear();
@@ -74,7 +75,7 @@
           if (this.files && this.files[0]) {
              var img = document.querySelector('img');
              img.src = URL.createObjectURL(this.files[0]);
-             img.onload = imageIsLoaded;
+
              //where tutorial starts
              const reader = new FileReader();
 
@@ -83,26 +84,28 @@
              });
 
              reader.readAsDataURL(this.files[0]);
-
+             document.querySelector('.visible').style.display='flex';
          }
      });
     });
 
-    function imageIsLoaded(e) { alert(e);}
     </script>
 
-    <div class = "rectanglewhite">
-   
-        <label  class = "cutsomGridString"><strong>Name of Image:</strong> </label>      
-            <input type="string" name="ImgName" id="ImgName" min="1" max="10" class = "NameTxtBox" /></label>  
+    <div class="visible">
+        <div class = "rectanglewhite">
+    
+            <label  class = "cutsomGridString"><strong>Name of Image:</strong> </label>      
+                <input type="text" name="ImgName" id="ImgName" /></label>
+                <img src = "" id = "myImg" width = "70" height = "70" class ='preview-image'>  
 
+        </div>
     </div>
 
     <!-- New white rectangel container -->
     <div class = "rectanglewhite2">
    
-        <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
-      <input type="submit" value="Submit" onclick="getData()" class = "submitButton">
+      <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
+      <input type="submit" value="Submit" id = 'Submit' onclick="getData()" class = "submitButton">
 
       <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
       <input type="submit" value="Preview" onclick="getData()" class = "previewButton">

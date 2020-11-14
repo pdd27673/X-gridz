@@ -1,3 +1,15 @@
+input[type='text'] {
+  float: left;
+  margin-left:30px;
+  text-align: left;
+  margin-top:25px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1e1e1e;
+  border-style: solid;
+  border-width: 2px;
+}
+
 p {
     text-align: center;
 }
@@ -61,7 +73,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 5px 10px -3px #4e7880;  /*#333*/
   }
-  
 
   .rectanglewhite
 {
@@ -76,7 +87,9 @@ body {
   /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
   border-radius: 8px;
   box-shadow: 0 5px 10px -3px #4e7880; /*#333*/
+ 
 }
+
 
 .rectanglewhite2
 {
@@ -360,3 +373,15 @@ body {
   padding: 15px 39px;
   
 }
+
+.visible{
+  display: none; 
+}
+
+.preview-image{
+  margin-left:10px;
+  padding-top: 5px;
+  vertical-align:middle;
+}
+
+
