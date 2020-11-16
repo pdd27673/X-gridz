@@ -9,7 +9,10 @@ var stage = 'container1';
 var stage2 = 'container2';
 var data, rightAnswer, rnd;
 var questionLock = false;
-var score = 0; //Declaring array that holds questions
+var score = 0;
+var recentImageDataUrl = localStorage.getItem('recent-image');
+var ImageName = localStorage.getItem('ImgName');
+var answers = []; //Declaring array that holds questions
 
 var questions = new Array(); //Start Loading of JSON file
 
@@ -32,14 +35,24 @@ request.onload = function () {
     var displayFinalSlide = function displayFinalSlide(stage) {
       var div = document.getElementById(stage); //create element to be displayed on page
 
-      var result = "<h1>Results</h1> <p>You got ".concat(score, " out of ").concat(questionNumber, "</p>"); //div to hold element
+      var result = "<h1>Results</h1> <p>You got ".concat(score, " out of ").concat(questionNumber, "</p>");
+      var displayAnswer = '';
+      var i = 1;
 
-      var resultDisplay = document.createElement('div'); //display text in resultDisplay div
+      for (var x in answers) {
+        displayAnswer += "<p>Question ".concat(i, " was ").concat(answers[x], "</p>");
+        i++;
+      } //div to hold element
+
+
+      var resultDisplay = document.createElement('div');
+      var answerDisplay = document.createElement('div'); //display text in resultDisplay div
 
       resultDisplay.className = 'result';
       resultDisplay.innerHTML = result; //assign div a child
 
-      div.appendChild(resultDisplay);
+      answerDisplay.innerHTML = displayAnswer;
+      div.appendChild(resultDisplay).appendChild(answerDisplay);
     }; //function that'll change question once they've been answered
 
 
@@ -101,11 +114,14 @@ request.onload = function () {
 
     var assignCorrectAnswer = function assignCorrectAnswer() {
       //creates random number from 0 to number of cells
-      rnd = Math.floor(Math.random() * (rows * columns) + 1); //pulling random image from div
+      rnd = Math.floor(Math.random() * (rows * columns) + 1);
+      var img = document.getElementById("img".concat(rnd));
 
-      var img = document.getElementById("img".concat(rnd)); //assigning
-
-      img.src = '/app/img/baby.png';
+      if (recentImageDataUrl) {
+        img.src = recentImageDataUrl;
+      } else {
+        img.src = '/app/img/baby.png';
+      }
     }; //function to check clicked on image
 
 
@@ -124,7 +140,8 @@ request.onload = function () {
               //correct answer
               //increment score
               score++;
-              console.log('correct answer'); //get cell holding the image
+              console.log('correct answer');
+              answers.push('Right'); //get cell holding the image
 
               var cell = document.getElementById("cell".concat(rnd)); //make border green
 
@@ -135,6 +152,7 @@ request.onload = function () {
               }, 1500);
             } else {
               //wrong answer
+              answers.push('Wrong');
               console.log('wrong answer'); //get the id of clicked element
 
               var str = this.id; //pulling numbers only from that string
