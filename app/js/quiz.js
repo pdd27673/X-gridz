@@ -1,12 +1,6 @@
 // document.addEventListener('DOMContentLoaded', function (event) {
 function getData() {
 
-    if(localStorage.getItem("recent-image").value){
-		if(document.getElementById('ImgName').value == null){
-			alert('please enter value');
-		}
-	}
-
 	//sets this.row with the row in the html gets the value of row
 	var row = parseInt(document.getElementById('row').value);
 
