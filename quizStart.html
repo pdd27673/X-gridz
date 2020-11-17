@@ -2,193 +2,114 @@
 <html lang="en">
 
 <head>
-    <link href="UserPrefStyling3.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>XGridz: Start a quiz!</title>
+    <link href="./app/css/UserPrefStyling3.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    
-
-    <!-- NEED TO STILL PUT IN THE PART TO CUSTOMIZE THE IMAGES -->
-
-    
-<!-- NEED TO STILL PUT IN THE PART TO CUSTOMIZE THE IMAGES -->
-
-
-<div class="topnav">
-    <p class = "xgridz">XGridz</p>
-      <a href="#"><strong>About</strong></a>
-      <a href="#"><strong>Profile</strong></a>
-      <a href="CustomImagePage.html"><strong>Back</strong></a>
-</div>
-
-<div class="header">
-    <p><strong>User Preferences</strong></p>
-</div>
-
-<div class = "rectanglegreen">
-    <p class = "para"><strong>Grid customization</strong></p>
-</div>
-
-<!-- Action that will take user to next page-->
-<form action="/quizGrid.html">
-
-    <!-- makes container "rectanglewhite" that contains input of row and column -->
-    <div class = "rectanglewhite">
-   
-        <label  class = "cutsomGridString"><strong>Custom Grid:</strong> </label>
-
-        <!-- Makes the input box for the row, it will only accept numbers from 1 to 50 -->
-        <label  class = "rowStuff"> Row:  </label>
-            <input type="number" name="row" id="row" min="1" max="4" class = "rowStuffTxtBox" /></label>
-
-        <!-- Makes the input box for the column, it will only accept numbers from 1 to 50 -->
-        <label  class = "columnStuff"> Column:  </label>       
-            <input type="number" name="row" id="column" min="1" max="8" class = "columnStuffTxtBox" /></label>     
-    
+    <div class="topnav">
+        <p class="xgridz">XGridz</p>
+        <a href="#"><strong>About</strong></a>
+        <a href="#"><strong>Profile</strong></a>
+        <a href="CustomImagePage.html"><strong>Back</strong></a>
     </div>
 
-     <!-- makes new container "rectanglewhite" that contains input of number of questions wanted -->
-    <div class = "rectanglewhite">
-   
-        <label  class = "cutsomGridString"><strong>No. of Questions:</strong> </label>      
-             <input type="number" name="questions" id="questionsNumber" min="1" max="6" class = "NoTxtBox" /></label> 
-        <label  class = "questionString"> Questions  </label>   
-
+    <div class="header">
+        <p><strong>User Preferences</strong></p>
     </div>
 
-
-    <!-- makes new container "rectanglewhite" that contains button of what imgae file the user wants WILL EDIT LATER -->
-    <!-- NOT SURE BOUT THIS YET, NEED TO TALK TO PAUL -->
-    <div class = "rectanglewhite">
-   
-        <label  class = "cutsomGridString"><strong>Choose Image:</strong> </label>      
-             <input type = "file">
-             <img src = "" id = "myImg" width = "50" height = "50">
-           
+    <div class="rectanglegreen">
+        <p class="para"><strong>Grid customization</strong></p>
     </div>
 
-    <script>
-        localStorage.clear();
-        window.addEventListener('load', function() {
-         document.querySelector('input[type="file"]').addEventListener('change', function() {
-          if (this.files && this.files[0]) {
-             var img = document.querySelector('img');
-             img.src = URL.createObjectURL(this.files[0]);
-             img.onload = imageIsLoaded;
-             //where tutorial starts
-             const reader = new FileReader();
+    <!-- Action that will take user to next page-->
+    <form action="/quizGrid.html">
 
-             reader.addEventListener("load", () => {
-                 localStorage.setItem("recent-image", reader.result);
-             });
+        <!-- makes container "rectanglewhite" that contains input of row and column -->
+        <div class="rectanglewhite">
 
-             reader.readAsDataURL(this.files[0]);
+            <label class="cutsomGridString"><strong>Custom Grid:</strong> </label>
 
-         }
-     });
-    });
+            <!-- Makes the input box for the row, it will only accept numbers from 1 to 50 -->
+            <label class="rowStuff"> Row: </label>
+            <input type="number" name="row" id="row" min="1" max="4" class="rowStuffTxtBox" /></label>
 
-    function imageIsLoaded(e) { alert(e);}
-    </script>
+            <!-- Makes the input box for the column, it will only accept numbers from 1 to 50 -->
+            <label class="columnStuff"> Column: </label>
+            <input type="number" name="row" id="column" min="1" max="8" class="columnStuffTxtBox" /></label>
 
-    <div class = "rectanglewhite">
-   
-        <label  class = "cutsomGridString"><strong>Name of Image:</strong> </label>      
-            <input type="string" name="ImgName" id="ImgName" min="1" max="10" class = "NameTxtBox" /></label>  
+        </div>
 
-    </div>
+        <!-- makes new container "rectanglewhite" that contains input of number of questions wanted -->
+        <div class="rectanglewhite">
 
-    <!-- New white rectangel container -->
-    <div class = "rectanglewhite2">
-   
-        <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
-      <input type="submit" value="Submit" onclick="getData()" class = "submitButton">
+            <label class="cutsomGridString"><strong>No. of Questions:</strong> </label>
+            <input type="number" name="questions" id="questionsNumber" min="1" max="6" class="NoTxtBox" /></label>
+            <label class="questionString"> Questions </label>
 
-      <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
-      <input type="submit" value="Preview" onclick="getData()" class = "previewButton">
-      
-      <!-- This button will take you back to the home page -->
-      <a href="CustomImagePage.html" class="finishButton">Finish </a>
+        </div>
+        <!-- makes new container "rectanglewhite" that contains button of what imgae file the user wants WILL EDIT LATER -->
+        <div class="rectanglewhite">
+
+            <label class="cutsomGridString"><strong>Choose Image:</strong> </label>
+            <input type="file" accept='image/*' id="myFile" name="filename" class="stringButton">
+
+        </div>
 
 
-    </div>
-</form>
+        <script>
+            localStorage.clear();
+            window.addEventListener('load', function () {
+                document.querySelector('input[type="file"]').addEventListener('change', function () {
+                    if (this.files && this.files[0]) {
+                        var img = document.querySelector('img');
+                        img.src = URL.createObjectURL(this.files[0]);
+
+                        //where tutorial starts
+                        const reader = new FileReader();
+
+                        reader.addEventListener("load", () => {
+                            localStorage.setItem("recent-image", reader.result);
+                        });
+
+                        reader.readAsDataURL(this.files[0]);
+                        document.querySelector('.visible').style.display = 'flex';
+                    }
+                });
+            });
+        </script>
+
+        <div class="visible">
+            <div class="rectanglewhite">
+
+                <label class="cutsomGridString"><strong>Name of Image:</strong> </label>
+                <input type="text" name="ImgName" id="ImgName" /></label>
+                <img src="" id="myImg" width="70" height="70" class='preview-image'>
+
+            </div>
+        </div>
+
+        <!-- New white rectangel container -->
+        <div class="rectanglewhite2">
+
+            <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
+            <input type="submit" value="Submit" id='Submit' onclick="getData()" class="submitButton">
+
+            <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
+            <input type="submit" value="Preview" onclick="getData()" class="previewButton">
+
+            <!-- This button will take you back to the home page -->
+            <a href="CustomImagePage.html" class="finishButton">Finish </a>
 
 
-
-
-
-
-
-
-    <!-- CUSTOM GRID SECTION -->
-    <!-- <fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;"> -->
-
-        <!-- The linked page will be CustomGridPreviewPage.html the data of row and column will be there-->
-            <!-- <form action="/quizGrid.html">
-            <legend>Grid Preference</legend> -->
-
-        <!-- This makes the label 'Row:' and  the input box to fill a number. It only accepts numbers-->
-            <!-- <label style="font-size: 20px;"> Row:
-            <input type="number" name="row" id="row" min="1" max="4" /></label> -->
-
-        <!-- This makes the label 'Column:'  and  the iput box to fill a number. It only accepts numbers-->
-            <!-- <label style="font-size: 20px;"> Column:
-            <input type="number" name="column" id="column" min="1" max="8" /></label>
-
-            <label style="font-size: 20px;"> Number of questions:
-            <input type="number" name="questions" id="questionsNumber" min="1" max="6" /></label> -->
-
-        <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
-            <!-- <input type="submit" value="Submit" onclick="getData()"> -->
-
-        <!-- This button is to show the data inputted on current page, calls .js function putData()-->
-            <!-- <input type="button" value="Answer" onclick="putData()"><br> -->
-
-        <!-- This shows label 'Row inputted:' and outputs the row data that was inputted by the user on current page -->
-            <!-- <label style="font-size: 15px;"> Row inputted:
-            <span id="rowData" style="font-size: 15px"> </span><br> -->
-
-        <!-- This shows label 'Column inputted:' and outputs the column data that was inputted by the user on current page -->
-            <!-- <label style="font-size: 15px;"> Column inputted:
-            <span id="columnData" style="font-size: 15px"> </span>
-
-             </form>
-    </fieldset>
-
-    <br></br> -->
-
-    <!-- IMAGE PREFERENCE SECTION -->
-     <!-- <fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;"> -->
-
-        <!-- The linked page will be CustomImagePage.html -->
-            <!-- <form action="/quizGrid.html">
-            <legend>Image Preference</legend>
-            <span style="font-size: 15px;">Select and image</span><br> -->
-
-        <!-- This makes the label 'Image:' and  the input box to fill a text. -->
-            <!-- <label style="font-size: 20px;"> Image:
-            <input type="text" name="row" id="row" /></label> -->
-
-
-        <!-- This button will take the user to another page where they can choose their image-->
-            <!-- <input type="submit" value="Select Image"><br>
-
-
-
-        </form>
-    </fieldset> -->
-
+        </div>
+    </form>
 
     <p><strong>NOTE:</strong> The Submit button will transfer you to another page with the data of row and column.</p>
-    <!-- <p><strong>NOTE:</strong> The Answer button will output the data and row in the current page.</p>
-    <p><strong>NOTE:</strong> The Select Image button will send you to another page where the user picks an image.</p> -->
-   
     <script src="app/js/quiz.js"></script>
 
-
 </body>
-
-
 
 </html>

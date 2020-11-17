@@ -1,5 +1,6 @@
 // document.addEventListener('DOMContentLoaded', function (event) {
 function getData() {
+
 	//sets this.row with the row in the html gets the value of row
 	var row = parseInt(document.getElementById('row').value);
 
@@ -10,8 +11,13 @@ function getData() {
 	var questionsNumber = parseInt(
 		document.getElementById('questionsNumber').value
 	);
-
-	var ImageName = document.getElementById('ImgName').value;
+	
+    //setting image name value
+	if(document.getElementById('ImgName').value){
+		var  ImageName = document.getElementById('ImgName').value;
+	}else{
+		var ImageName ='baby';
+	}
 
 	//sets the the variables and put in local storage, so linked page can access data of row and colum
 	localStorage.setItem('Row', row);

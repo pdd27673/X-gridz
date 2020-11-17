@@ -8,8 +8,9 @@ var stage2 = 'container2';
 var data, rightAnswer, rnd;
 var questionLock = false;
 var score = 0;
-var recentImageDataUrl = localStorage.getItem("recent-image")
-var ImageName = localStorage.getItem("ImgName")
+var recentImageDataUrl = localStorage.getItem('recent-image');
+var ImageName = localStorage.getItem('ImgName');
+var answers = [];
 
 //Declaring array that holds questions
 var questions = new Array();
@@ -44,13 +45,23 @@ request.onload = function () {
 			var div = document.getElementById(stage);
 			//create element to be displayed on page
 			var result = `<h1>Results</h1> <p>You got ${score} out of ${questionNumber}</p>`;
+			var displayAnswer = '';
+			var i = 1;
+
+			for (var x in answers) {
+				displayAnswer += `<p>Question ${i} was ${answers[x]}</p>`;
+				i++;
+			}
+
 			//div to hold element
 			var resultDisplay = document.createElement('div');
+			var answerDisplay = document.createElement('div');
 			//display text in resultDisplay div
 			resultDisplay.className = 'result';
 			resultDisplay.innerHTML = result;
 			//assign div a child
-			div.appendChild(resultDisplay);
+			answerDisplay.innerHTML = displayAnswer;
+			div.appendChild(resultDisplay).appendChild(answerDisplay);
 		}
 
 		//function that'll change question once they've been answered
@@ -107,6 +118,8 @@ request.onload = function () {
 			var img = document.getElementById(`img${rnd}`);
 			if (recentImageDataUrl) {
 				img.src = recentImageDataUrl;
+			} else {
+				img.src = '/app/img/baby.png';
 			}
 		}
 
@@ -129,6 +142,7 @@ request.onload = function () {
 							//increment score
 							score++;
 							console.log('correct answer');
+							answers.push('Right');
 							//get cell holding the image
 							var cell = document.getElementById(`cell${rnd}`);
 							//make border green
@@ -139,6 +153,7 @@ request.onload = function () {
 							}, 1500);
 						} else {
 							//wrong answer
+							answers.push('Wrong');
 							console.log('wrong answer');
 							//get the id of clicked element
 							var str = this.id;
