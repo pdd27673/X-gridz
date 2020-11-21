@@ -146,7 +146,7 @@ request.onload = function () {
 							//get cell holding the image
 							var cell = document.getElementById(`cell${rnd}`);
 							//make border green
-							cell.style.border = 'solid green';
+							cell.style.border = '5px solid green';
 							//set a timeout before changing question
 							setTimeout(function () {
 								changeQuestion();
@@ -162,7 +162,7 @@ request.onload = function () {
 							//pulling corresponding div cell
 							var cell = document.getElementById(`cell${res}`);
 							//making cell border red
-							cell.style.border = 'solid red';
+							cell.style.border = '5px solid red';
 							//set timeout before next question
 							setTimeout(function () {
 								changeQuestion();

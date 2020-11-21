@@ -64,11 +64,12 @@ img {
     border: 1px solid #ddd;
     text-align: center;
     cursor: pointer;
+    background-color: rgb(243, 240, 240);
 
 }
 
 .grid-item:hover {
-    border: solid orange;
+    border: 5px solid orange;
 }
 
 #topbar {
@@ -119,3 +120,31 @@ img {
         margin-top: 10px;
     }
 }
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #ffcc2b;
+    box-shadow: 0 5px 10px -3px #6dacb3;
+
+  }
+  
+  .topnav p {
+    color: #f2f2f2;
+    font-size: 20px;
+    float: left;
+    font-size: 20px;
+    margin-left: 20px;
+    
+  }
+  
+  body {
+    font-family: Arial;
+    margin: 0;
+    /* background-color: rgb(136, 215, 222); */
+    background-image: url('/app/img/hillUp6.jpg');
+    /* background-color:rgb(136, 215, 222); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
