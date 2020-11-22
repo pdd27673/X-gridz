@@ -64,7 +64,7 @@ img {
     border: 1px solid #ddd;
     text-align: center;
     cursor: pointer;
-    background-color: rgb(243, 240, 240);
+    background-color: rgb(247, 245, 245);
 
 }
 
@@ -147,4 +147,35 @@ img {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+  }
+
+  .pink-rectangle {
+    padding: .5px;
+    text-align: center;
+    line-height: 30px;
+    height: 100px;
+    background: #cc6172;
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px -3px #4e7880;
+  }
+
+  .rectanglegreen {
+    height: 50px;
+    width: 600px;
+    background-color: rgb(152, 191, 94);
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px -3px #4e7880;
+  }
+  
+  .para {
+    text-align: center;
+    padding: 15px;
+    color: #f2f2f2;
+    font-size: 25px;
   }
