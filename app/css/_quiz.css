@@ -153,15 +153,16 @@ img {
     padding: .5px;
     text-align: center;
     line-height: 30px;
-    height: 100px;
+    height: 70px;
     background: #cc6172;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 10px -3px #4e7880;
+    
   }
 
   .rectanglegreen {
