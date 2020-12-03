@@ -119,7 +119,7 @@ request.onload = function () {
 			if (recentImageDataUrl) {
 				img.src = recentImageDataUrl;
 			} else {
-				img.src = '/app/img/baby.png';
+				img.src = '/app/img/squirrel3.png';
 			}
 		}
 
