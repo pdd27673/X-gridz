@@ -65,7 +65,8 @@ The architecture of the product has been designed from the ground up with the ki
 <li>Express</li>
 <li>Node</li>
 </ul>
-<!-- GETTING STARTED -->
+
+
 ## Getting Started 🤝
 
 In order to use XGridz you would need to have visit our demo website: http://xgridz.epizy.com 
@@ -115,7 +116,7 @@ Jose Cuevas Marquez -
 * [Youtube](https://youtube.com)
 * [Stack Overflow](https://stackoverflow.com)
 * [Font Awesome](https://fontawesome.com)
-* [Teh real MVP: Professor Chaja](https://www.linkedin.com/in/kevin-chaja-7544565/)
+* [The real MVP: Professor Chaja](https://www.linkedin.com/in/kevin-chaja-7544565/)
 
 
 
