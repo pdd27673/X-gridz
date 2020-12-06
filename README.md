@@ -10,7 +10,7 @@
     <a href="https://github.com/pdd27673/xgridz"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="xgridz.epizy.com">View Demo ⚙️</a>
+    <a href="http://xgridz.epizy.com">View Demo ⚙️</a>
     ·
     <a href="https://github.com/pdd27673/xgridz/issues">Report Bug 🐜</a>
     ·
@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project ✍🏾
 
-[![Xgridz Screenschot][product-screenshot]](https://github.com/pdd27673/xgridz/blob/main/quizGrid.png?raw=true)
+[![Xgridz Screenschot][product-screenshot]](https://github.com/pdd27673/xgridz/blob/main/quizGrid.png)
 
 [![Xgridz Screenschot][product-screenshot]](https://github.com/pdd27673/xgridz/blob/main/quizStart.png?raw=true)
 
@@ -68,7 +68,7 @@ The architecture of the product has been designed from the ground up with the ki
 <!-- GETTING STARTED -->
 ## Getting Started 🤝
 
-In order to use XGridz you would need to have visit our demo website: xgridz.epizy.com
+In order to use XGridz you would need to have visit our demo website: http://xgridz.epizy.com 
 ### Prerequisites 🧲
 In order to interact with our demo, you'll need to the latest versions of either:
 <li>Google Chrome
@@ -78,7 +78,7 @@ In order to interact with our demo, you'll need to the latest versions of either
 <!-- USAGE EXAMPLES -->
 ## Usage ℹ️
 
-To use the development version of XGridz, visit: xgridz.epizy.com
+To use the development version of XGridz, visit: http://xgridz.epizy.com 
 <!-- ROADMAP -->
 ## Roadmap 🤔
 
