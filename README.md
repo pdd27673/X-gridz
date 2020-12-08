@@ -103,11 +103,11 @@ Contributions are what make the open source community such an amazing place to b
 
 Paul Doho - [@pdd27673](https://github.com/pdd27673) - pauldoho@outlook.com 
 
-Simran Gill - [@simrankgill](https://github.com/simrankgill)
+Simran Gill - [@simrankgill](https://github.com/simrankgill) - simrangill0309@gmail.com
 
-Danielle Valenzuela - [@rogennee98](https://github.com/Rogennee98)
+Danielle Valenzuela - [@rogennee98](https://github.com/Rogennee98) - daniellevalenzuela41@gmail.com
 
-Sarah Canto Hyatt - [@sarahnicoleboo](https://github.com/sarahnicoleboo)
+Sarah Canto Hyatt - [@sarahnicoleboo](https://github.com/sarahnicoleboo) - sarahnicolesmail62@gmail.com
 
 Jose Cuevas Marquez - 
 <!-- ACKNOWLEDGEMENTS -->
