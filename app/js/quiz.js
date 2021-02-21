@@ -36,3 +36,12 @@ function putData() {
 		' ' + parseInt(document.getElementById('column').value);
 }
 // });
+
+
+/***Assign to Student pop up box ***/
+function assignToStudent(){
+    document.querySelector('.bg-model').style.display='flex';
+}
+function closePopUp(){
+    document.querySelector('.bg-model').style.display='none';
+}

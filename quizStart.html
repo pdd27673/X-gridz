@@ -43,7 +43,8 @@
         <div class="rectanglewhite">
 
             <label class="cutsomGridString"><strong>No. of Questions:</strong> </label>
-            <input type="number" name="questions" id="questionsNumber" min="1" max="6" class="NoTxtBox" required /></label>
+            <input type="number" name="questions" id="questionsNumber" min="1" max="6" class="NoTxtBox"
+                required /></label>
             <label class="questionString"> Questions </label>
 
         </div>
@@ -94,6 +95,7 @@
 
             <!-- This button is to show the data inputted on the nextPage, is linked, calls .js function getData() -->
             <input type="submit" value="Submit" id='Submit' onclick="getData()" class="submitButton">
+            <input type="button" value="Assign to Students" class="assignButton" onclick="assignToStudent()">
 
 
         </div>
@@ -103,5 +105,50 @@
     <script src="app/js/quiz.js"></script>
 
 </body>
+
+<div class="bg-model">
+    <div class="model-content">
+        <div class="popup-rectangle">
+            Assign to Students:
+        </div>
+        <div class="scrollPopUp">
+            <label class="container"><img src="app/img/userIcon.PNG" width=32 height=32> Ursula Gurnmeister
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon1.PNG" width=32 height=32> Fleese Marigold
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon2.PNG" width=32 height=32> Dianne Ameter
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon.PNG" width=32 height=32> Rudy Jenkins 
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon1.PNG" width=32 height=32> Phillip Anthropy
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon2.PNG" width=32 height=32> Abraham Pigeon
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container"><img src="app/img/userIcon.PNG" width=32 height=32> Gordon Norman
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <br>
+        <form class="shiftToCenter">
+            <a href="" class="pill-btn-green" id=findStudentEmail>Submit</a>
+            <a href="" id="Cancel">
+                <input onclick=closePopUp() type="button" class="pill-btn-red" value="Cancel" />
+            </a>
+        </form>
+    </div>
+</div>
 
 </html>
