@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="app/css/signUp.css" type="text/css" />
+</head>
+
+<title>Xgridz</title>
+
+<body>
+
+	<header class="header" id="myHeader">
+		<nav class="flex">
+			<label class="logo">Xgridz</label>
+			<div class="menu-link">
+				<ul class="unordered-list">
+					<li class="btn">
+						<a href="/logIn.html"><span>Log In</span></a>
+					</li>
+					<li class="btn">
+						<a href="/signUp.html"><span>Sign Up</span></a>
+					</li>
+					<li class="btn">
+						<a href="#"><span>About Us</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="sign-up">
+		<div class="sign-up-panel">
+			<form>
+				<h1>Sign Up</h1>
+				<h2 class="sign-up">Sign Up As...</h2>
+				<div class="form-group" data-toggle="buttons">
+					<label class="pill-btn-green">
+						<input type="radio" name="userType" id="StudentType" value='Student'> Student
+					</label>
+					<label class="pill-btn-green">
+						<input type="radio" name="userType" id="TeacherType" value='Teacher'> Teacher
+					</label>
+				</div>
+
+				<div class="form-group">
+					<input type="text" placeholder="First Name" id="firstName" required /> <br>
+					<input type="text" placeholder="Last Name" id="lastName" required />
+				</div>
+
+				<div class="form-group" id="signupbtn">
+					<input type="button" class="google-button" value="Sign Up with Google" />
+				</div>
+				<div class="form-group" id="signupbtn">
+					<input onclick="signUp()" type="button" class="pill-btn" value="Submit" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+
+
+
+
+
+
+</html>

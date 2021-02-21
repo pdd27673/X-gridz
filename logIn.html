@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app/css/logIn.css" type="text/css" />
+</head>
+
+<title>Xgridz</title>
+
+<body>
+    <header class="header" id=myHeader>
+        <nav class="flex">
+            <label class="logo">Xgridz</label>
+            <div class="menu-link">
+                <ul class="unordered-list">
+                    <li class="btn">
+                        <a href="/logIn.html"><span>Log In</span></a>
+                    </li>
+                    <li class="btn">
+                        <a href="/signUp.html"><span>Sign Up</span></a>
+                    </li>
+                    <li class="btn">
+                        <a href="#"><span>About Us</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="log-in">
+        <div class="log-in-panel">
+            <h1>Log In</h1> <br>
+            <h2 class="sign-up">Log In As...</h2>
+            <div class="form-group" data-toggle="buttons">
+                <label class="pill-btn-green">
+                    <input type="radio" name="userType" id="StudentType" value='Student'> Student
+                </label>
+                <label class="pill-btn-green">
+                    <input type="radio" name="userType" id="TeacherType" value='Teacher'> Teacher
+                </label>
+            </div>
+            <br>
+            <div class="form-group" id="loginbtn">
+                <input type="button" class="google-button" value="Log In with Google" />
+            </div>
+            <br>
+            <div class="form-group" id="signupbtn">
+                <input  type="button" class="pill-btn" value="Submit" />
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
