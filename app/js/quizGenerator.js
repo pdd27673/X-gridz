@@ -193,7 +193,7 @@ request.onload = function () {
 				let img = document.createElement('img');
 				//set img attributes and src
 				img.src = '/app/img/' + questions[c];
-				// img.className = 'cell';
+				// img.id = 'cell';
 				cell.id = `cell${c + 1}`;
 				img.id = `img${c + 1}`;
 				//append img to cell and then cell to container
