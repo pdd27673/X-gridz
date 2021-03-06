@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Dashboard</title>
+    <link href="./app/css/dashboard.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="topnav">
+        <p class="xgridz">XGridz</p>
+        <button id='sign-out'> 
+            <a href='#' class="sign-out">Sign out</a>
+        </button>
+    </div>
+    <div>
+        <button onclick="fetchData()"> Fetch Teacher Data</button>
+        <button onclick="fetchStudentData()"> Fetch Student Data</button>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+    <script src='app/js/API.js'></script>
+</body>
+
