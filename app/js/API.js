@@ -45,7 +45,7 @@ async function fetchStudentData() {
 
         //for each ID pull up corresponding student
         studentInfo.forEach(async function (doc)  {
-            let name = doc.get("firstName")+ " " + doc.get("lastName");
+            let name = doc.get("firstName") + " " + doc.get("lastName");
             let student = []
             student.push(name)
             const quizCollection = studentCollection.doc(`${doc.id}`).collection('QuizInfo');
@@ -77,7 +77,7 @@ async function fetchStudentAgeRange(){
         studentInfo.forEach(async function (doc){
 
             let studentAgeRange = doc.get('ageRange')
-            let fullName = doc.get("firstName")+ " " + doc.get("lastName");
+            let fullName = doc.get("firstName") + " " + doc.get("lastName");
 
             let student = [];
             student.push(fullName);
@@ -86,10 +86,10 @@ async function fetchStudentAgeRange(){
             if(studentAgeRange == "4-5"){
                 fourToFive.push(student);
             }
-            if(studentAgeRange == '6-7'){
+            else if(studentAgeRange == '6-7'){
                 sixToSeven.push(student);
             }
-            if(studentAgeRange == '8-9'){
+            else if(studentAgeRange == '8-9'){
                 eightToNine.push(student);
             }
 
