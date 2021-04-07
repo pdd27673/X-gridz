@@ -1,0 +1,36 @@
+@import "UserPrefStyling3.css";
+
+.topnav{
+    display: flex;
+    justify-content: space-between;
+}
+
+#sign-out {
+    background: transparent;
+    border: none;
+}
+
+.sign-out {
+	box-shadow:inset 0px 0px 15px 3px #c7ac5a;
+	/*background:linear-gradient(to bottom, #f7d576 5%, #dbcfad 100%);*/
+    background: transparent;
+	background-color:#ffcc40;
+	border-radius:17px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:14px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d3d3d;
+}
+.sign-out:hover {
+	background:linear-gradient(to bottom, #dbcfad 5%, #f7d576 100%);
+	background-color:#dbcfad;
+}
+.sign-out:active {
+	position:relative;
+	top:1px;
+}

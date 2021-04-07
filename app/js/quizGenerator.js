@@ -119,7 +119,7 @@ request.onload = function () {
 			if (recentImageDataUrl) {
 				img.src = recentImageDataUrl;
 			} else {
-				img.src = '/app/img/baby.png';
+				img.src = '/app/img/squirrel3.png';
 			}
 		}
 
@@ -146,7 +146,7 @@ request.onload = function () {
 							//get cell holding the image
 							var cell = document.getElementById(`cell${rnd}`);
 							//make border green
-							cell.style.border = 'solid green';
+							cell.style.border = '5px solid green';
 							//set a timeout before changing question
 							setTimeout(function () {
 								changeQuestion();
@@ -162,7 +162,7 @@ request.onload = function () {
 							//pulling corresponding div cell
 							var cell = document.getElementById(`cell${res}`);
 							//making cell border red
-							cell.style.border = 'solid red';
+							cell.style.border = '5px solid red';
 							//set timeout before next question
 							setTimeout(function () {
 								changeQuestion();
@@ -193,7 +193,7 @@ request.onload = function () {
 				let img = document.createElement('img');
 				//set img attributes and src
 				img.src = '/app/img/' + questions[c];
-				// img.className = 'cell';
+				// img.id = 'cell';
 				cell.id = `cell${c + 1}`;
 				img.id = `img${c + 1}`;
 				//append img to cell and then cell to container

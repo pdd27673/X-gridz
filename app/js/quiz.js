@@ -16,7 +16,7 @@ function getData() {
 	if(document.getElementById('ImgName').value){
 		var  ImageName = document.getElementById('ImgName').value;
 	}else{
-		var ImageName ='baby';
+		var ImageName ='squirrel';
 	}
 
 	//sets the the variables and put in local storage, so linked page can access data of row and colum
