@@ -79,7 +79,8 @@ body {
   height: 80px;
   width: 1230px;
   background-color: rgb(255, 255, 255);
-  margin-left: 65px;
+  /*margin-left: 65px; */
+  margin-left: 15%;
   /*35px*/
   /* margin-top: 30px; */
   border-style: solid;
@@ -98,7 +99,8 @@ body {
   width: 1230px;
   /*1278px*/
   background-color: rgb(255, 255, 255);
-  margin-left: 65px;
+  /*margin-left: 65px; */
+  margin-left: 15%;
   /*35px*/
   /* margin-top: 30px; */
   border-style: solid;
@@ -115,7 +117,8 @@ body {
   width: 600px;
   /*width: 250px; */
   background-color: rgb(152, 191, 94);
-  margin-left: 65px;
+  margin-left: 30%;
+  /*margin-left: 65px; */
   /*35px*/
   margin-top: 30px;
   border-radius: 8px;
